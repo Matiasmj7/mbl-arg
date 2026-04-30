@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBL Arg | La Élite de Mobile Legends Argentina - Torneos y Comunidad</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MBL Arg es la plataforma líder de E-sports para Mobile Legends en Argentina. Participá en torneos gratuitos, encontrá escuadrones con nuestro Matchmaking Ninja y dominá el Abismo.">
+    <meta name="keywords" content="Mobile Legends Argentina, Torneos MLBB, E-sports Argentina, MBL Arg, Comunidad Ninja, Fichajes Mobile Legends, MLBB Tournaments">
+    <meta name="author" content="MBL Arg Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mblarg.com.ar/">
+    <meta property="og:title" content="MBL Arg | Hub Profesional de Mobile Legends">
+    <meta property="og:description" content="Unite a la comunidad ninja más competitiva. Torneos 1v1, 5v5 y sistema de fichajes inteligente.">
+    <meta property="og:image" content="hero_classic_team.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="MBL Arg | Domina el Abismo">
+    <meta property="twitter:description" content="La mejor plataforma de torneos de MLBB en Argentina.">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="bg-animated"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="sharingan-container">
+                    <svg class="sharingan-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" class="eye-bg" />
+                        <circle cx="50" cy="50" r="18" class="eye-ring" />
+                        <circle cx="50" cy="50" r="6" fill="#000" />
+                        <g class="tomoe-wrap">
+                            <path class="tomoe" d="M50,15 C55,15 58,18 58,22 C58,26 55,29 50,29 C45,29 42,26 42,22 C42,18 45,15 50,15 Z" transform="rotate(0 50 50)" />
+                            <path class="tomoe" d="M50,15 C55,15 58,18 58,22 C58,26 55,29 50,29 C45,29 42,26 42,22 C42,18 45,15 50,15 Z" transform="rotate(120 50 50)" />
+                            <path class="tomoe" d="M50,15 C55,15 58,18 58,22 C58,26 55,29 50,29 C45,29 42,26 42,22 C42,18 45,15 50,15 Z" transform="rotate(240 50 50)" />
+                        </g>
+                    </svg>
+                </div>
+                <span>MBL <span class="accent">ARG</span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                <li><a href="#stream" class="nav-link">Transmisión</a></li>
+                <li><a href="#bingo-book" class="nav-link">Libro Bingo</a></li>
+                <li><a href="#tournaments" class="nav-link">Torneos</a></li>
+                <li><a href="#tavern" class="nav-link">The Tavern</a></li>
+                <li><a href="#market" class="nav-link">Fichajes</a></li>
+                <li><a href="#promo" class="nav-link">Promocionate</a></li>
+                <li><a href="#communities" class="nav-link">Comunidades</a></li>
+                <li><a href="#partners" class="nav-link">Aliados</a></li>
+                <li><a href="#beats" class="nav-link">Battle Beats</a></li>
+                <li><a href="#donate" class="nav-link">Donar</a></li>
+                <li><a href="#admin" class="nav-link">Admin</a></li>
+            </ul>
+            <button class="btn btn-glow" id="btnAuth"><i class="fas fa-user-ninja"></i> Ingresar</button>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header id="hero" class="hero">
+        <div class="akatsuki-clouds">
+            <div class="cloud-layer cloud-layer-1"></div>
+            <div class="cloud-layer cloud-layer-2"></div>
+            <div class="cloud-layer cloud-layer-3"></div>
+        </div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tag">// PLATAFORMA E-SPORTS ARGENTINA</p>
+            <h1 class="hero-title">DOMINA<br><span class="text-red">EL ABISMO</span></h1>
+            <p class="hero-sub">Únete a la liga más competitiva. Reclama tu rango ninja, encuentra tu escuadrón y forja tu leyenda en Mobile Legends.</p>
+            <div class="hero-actions">
+                <a href="#tournaments" class="btn btn-primary"><i class="fas fa-trophy"></i> Ver Torneos</a>
+                <a href="#bingo-book" class="btn btn-outline"><i class="fas fa-scroll"></i> Salón de la Fama</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">256+</span><span class="stat-label">Jugadores</span></div>
+                <div class="stat"><span class="stat-num">48</span><span class="stat-label">Torneos</span></div>
+                <div class="stat"><span class="stat-num">12</span><span class="stat-label">Escuadrones</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PRESENTACIÓN PROFESIONAL ===== -->
+    <section id="about-mbl" class="section-alt" style="padding: 80px 0; background: var(--bg-dark);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="sub-title" style="font-size: 2.5rem;"><i class="fas fa-chess"></i> El Ecosistema <span class="accent">Ninja</span></h2>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto; font-size: 1.1rem;">MBL Arg no es solo una web de torneos; es el primer HUB tecnológico y competitivo de Mobile Legends en Argentina, diseñado para llevar tu carrera gamer al nivel profesional.</p>
+            </div>
+
+            <div class="market-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <!-- Pilar 1 -->
+                <div class="ninja-card chidori-frame" style="background: rgba(0,0,0,0.4); border-color: var(--neon-blue);">
+                    <div style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px;"><i class="fas fa-microchip"></i></div>
+                    <h3 style="color: var(--white); margin-bottom: 15px;">Torneos Pro Engine</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Gestión automatizada de brackets, calendarios con cuenta regresiva y estadísticas avanzadas. Competí en modalidades 1v1, 2v2, 3v3 y 5v5 con total transparencia.</p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="ninja-card chidori-frame" style="background: rgba(0,0,0,0.4); border-color: var(--naruto-orange);">
+                    <div style="font-size: 3rem; color: var(--naruto-orange); margin-bottom: 20px;"><i class="fas fa-users-rays"></i></div>
+                    <h3 style="color: var(--white); margin-bottom: 15px;">Mercado de Fichajes</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Nuestro algoritmo de Matchmaking conecta ninjas sin equipo con escuadrones que buscan roles específicos (TANKE, JUNGLA, ADC, etc.) de forma inteligente y rápida.</p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="ninja-card chidori-frame" style="background: rgba(0,0,0,0.4); border-color: var(--neon-red);">
+                    <div style="font-size: 3rem; color: var(--neon-red); margin-bottom: 20px;"><i class="fas fa-id-card-clip"></i></div>
+                    <h3 style="color: var(--white); margin-bottom: 15px;">Identidad & Rango</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Construí tu reputación en el "Libro Bingo". Ganá puntos, ascendé de Tier (Genin a Kage) y personalizá tu perfil para destacar ante los mejores clanes de la región.</p>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="ninja-card chidori-frame" style="background: rgba(0,0,0,0.4); border-color: #53fc18;">
+                    <div style="font-size: 3rem; color: #53fc18; margin-bottom: 20px;"><i class="fas fa-video"></i></div>
+                    <h3 style="color: var(--white); margin-bottom: 15px;">Media & Streaming</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6;">Retransmisión integrada de TikTok, Twitch y Kick. Sala de Discord en vivo para espectadores y una comunidad vibrante que interactúa en tiempo real durante cada final.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; padding: 40px; background: rgba(0,240,255,0.02); border-radius: 15px; border: 1px dashed rgba(0,240,255,0.2); text-align: center;">
+                <h4 style="color: var(--neon-blue); margin-bottom: 10px;">¿Sos una Marca o Empresa?</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">Ofrecemos soluciones SaaS para aliados y espacios publicitarios estratégicos para sponsors que quieran dominar el mercado gamer argentino.</p>
+                <a href="#sponsorship" class="btn btn-glow" style="margin-top: 20px;"><i class="fas fa-handshake"></i> Conocer Alianzas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIVE STREAM ===== -->
+    <section id="stream" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// EN DIRECTO</p>
+                <h2 class="section-title">Transmisión <span class="text-red">Oficial</span></h2>
+                <p class="section-sub">Sigue los torneos y scrims en vivo. Selecciona la plataforma.</p>
+            </div>
+
+            <div class="stream-wrapper">
+                <div class="stream-platforms">
+                    <button class="stream-btn active" data-platform="twitch"><i class="fab fa-twitch"></i> Twitch</button>
+                    <button class="stream-btn" data-platform="youtube"><i class="fab fa-youtube"></i> YouTube</button>
+                    <button class="stream-btn" data-platform="kick"><i class="fas fa-bolt"></i> Kick</button>
+                    <button class="stream-btn" data-platform="facebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    <button class="stream-btn" data-platform="tiktok"><i class="fab fa-tiktok"></i> TikTok</button>
+                </div>
+                <div class="stream-layout" style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; height: 500px;">
+                    <div class="stream-container" id="streamContainer" style="height: 100%;">
+                        <iframe src="https://player.twitch.tv/?channel=mobilelegendsesports&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>
+                    </div>
+                    <div class="discord-widget" style="height: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border);">
+                        <iframe src="https://discord.com/widget?id=TU_SERVER_ID&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EL LIBRO BINGO ===== -->
+    <section id="bingo-book" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// SALÓN DE LA FAMA</p>
+                <h2 class="section-title">El Libro <span class="accent">Bingo</span></h2>
+                <p class="section-sub">Los criminales más buscados y las leyendas de MBL Arg.</p>
+            </div>
+
+            <div class="bingo-tabs">
+                <button class="tab-btn active" data-tab="founders">Escuadrón Fundador</button>
+                <button class="tab-btn" data-tab="legends">Leyendas</button>
+                <button class="tab-btn" data-tab="wanted">Más Buscados</button>
+            </div>
+
+            <div class="tab-content active" id="tab-founders">
+                <div class="cards-grid">
+                    <div class="ninja-card tier-kage">
+                        <div class="card-rank">KAGE</div>
+                        <div class="card-avatar"><i class="fas fa-user-ninja"></i></div>
+                        <h3>Lunatico</h3>
+                        <p class="card-role">Fundador & Líder</p>
+                        <div class="card-stats"><span><i class="fas fa-star"></i> Kage</span><span><i class="fas fa-fire"></i> 95% WR</span></div>
+                    </div>
+                    <div class="ninja-card tier-jonin">
+                        <div class="card-rank">JONIN</div>
+                        <div class="card-avatar"><i class="fas fa-user-ninja"></i></div>
+                        <h3>ShadowSlayer</h3>
+                        <p class="card-role">Jungla - Co-Líder</p>
+                        <div class="card-stats"><span><i class="fas fa-star"></i> Jonin</span><span><i class="fas fa-fire"></i> 78% WR</span></div>
+                    </div>
+                    <div class="ninja-card tier-jonin">
+                        <div class="card-rank">JONIN</div>
+                        <div class="card-avatar"><i class="fas fa-user-ninja"></i></div>
+                        <h3>NeonBlade</h3>
+                        <p class="card-role">ADC - Estratega</p>
+                        <div class="card-stats"><span><i class="fas fa-star"></i> Jonin</span><span><i class="fas fa-fire"></i> 72% WR</span></div>
+                    </div>
+                    <div class="ninja-card tier-chunin">
+                        <div class="card-rank">CHUNIN</div>
+                        <div class="card-avatar"><i class="fas fa-user-ninja"></i></div>
+                        <h3>CrimsonGhost</h3>
+                        <p class="card-role">Tanque - Reclutador</p>
+                        <div class="card-stats"><span><i class="fas fa-star"></i> Chunin</span><span><i class="fas fa-fire"></i> 65% WR</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-legends">
+                <div class="cards-grid">
+                    <div class="ninja-card tier-kage">
+                        <div class="card-rank">KAGE</div>
+                        <div class="card-avatar"><i class="fas fa-crown"></i></div>
+                        <h3>PhantomKing</h3>
+                        <p class="card-role">Mid - Campeón S1</p>
+                        <div class="card-stats"><span><i class="fas fa-trophy"></i> 3 Títulos</span><span><i class="fas fa-fire"></i> 88% WR</span></div>
+                    </div>
+                    <div class="ninja-card tier-kage">
+                        <div class="card-rank">KAGE</div>
+                        <div class="card-avatar"><i class="fas fa-crown"></i></div>
+                        <h3>VoidWalker</h3>
+                        <p class="card-role">Jungla - MVP S2</p>
+                        <div class="card-stats"><span><i class="fas fa-trophy"></i> 2 Títulos</span><span><i class="fas fa-fire"></i> 82% WR</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-wanted">
+                <div class="cards-grid">
+                    <div class="ninja-card tier-wanted">
+                        <div class="card-rank">BUSCADO</div>
+                        <div class="card-avatar"><i class="fas fa-skull-crossbones"></i></div>
+                        <h3>DarkSmurf99</h3>
+                        <p class="card-role">Sospechoso de Smurfing</p>
+                        <div class="card-stats"><span><i class="fas fa-ban"></i> Bajo Revisión</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MOTOR DE TORNEOS ===== -->
+    <section id="tournaments" class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// COMPETICIÓN</p>
+                <h2 class="section-title">Motor de <span class="accent">Torneos</span></h2>
+                <p class="section-sub">Victoria = 3 pts | Empate = 1 pt | Derrota = 0 pts. Desempate automático Bo3.</p>
+            </div>
+
+            <!-- Modalidades -->
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="1v1"><i class="fas fa-user"></i> 1v1</button>
+                <button class="mode-btn" data-mode="2v2"><i class="fas fa-user-friends"></i> 2v2</button>
+                <button class="mode-btn" data-mode="3v3"><i class="fas fa-users"></i> 3v3</button>
+                <button class="mode-btn" data-mode="5v5"><i class="fas fa-people-group"></i> 5v5</button>
+            </div>
+
+            <div class="mode-info">
+                <div class="mode-detail active" id="mode-1v1">
+                    <h3><i class="fas fa-swords"></i> Duelo 1v1</h3>
+                    <p>Victoria por primera torre media destruida. Clasificación individual por Tiers Ninja.</p>
+                </div>
+                <div class="mode-detail" id="mode-2v2">
+                    <h3><i class="fas fa-user-friends"></i> Duos 2v2</h3>
+                    <p>Cooperación en pareja. Estrategia de combo de habilidades y sinergia ninja.</p>
+                </div>
+                <div class="mode-detail" id="mode-3v3">
+                    <h3><i class="fas fa-shield-halved"></i> Escuadrón 3v3</h3>
+                    <p>Modo táctico reducido. Ideal para equipos pequeños y entrenamientos competitivos.</p>
+                </div>
+                <div class="mode-detail" id="mode-5v5">
+                    <h3><i class="fas fa-chess-rook"></i> Guerra Total 5v5</h3>
+                    <p>El modo competitivo clásico. Escuadrones completos batallando por la gloria.</p>
+                </div>
+            </div>
+
+            <!-- Calendario de Torneos -->
+            <div id="tournamentCalendar" class="section-alt" style="margin-top: 50px; padding: 30px; background: rgba(0,210,255,0.03); border: 1px solid var(--glass-border); border-radius: 15px;">
+                <h3 class="sub-title" style="text-align: center;"><i class="fas fa-calendar-alt"></i> Calendario <span class="accent">Ninja</span></h3>
+                <p style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 30px;">Seguí el cronograma oficial y prepará tus tácticas para el próximo despliegue.</p>
+                <div id="calendarGrid" class="market-grid">
+                    <!-- JS generará los eventos del calendario aquí con cuenta regresiva -->
+                </div>
+            </div>
+
+            <!-- Torneos Gratuitos Oficiales -->
+            <div class="free-tournaments">
+                <h3 class="sub-title"><i class="fas fa-gift"></i> Torneos Gratuitos <span class="badge kage">Oficiales</span></h3>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 20px;">Participá en torneos de todas las categorías gestionados por el Kage Lunatico.</p>
+                
+                <div id="freeTournamentsList" class="market-grid">
+                    <!-- JS generará las tarjetas de torneos aquí -->
+                </div>
+
+                <!-- Mis Inscripciones (Solo visible si está logueado) -->
+                <div id="mySignupsSection" class="hidden" style="margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 30px;">
+                    <h3 class="sub-title"><i class="fas fa-id-badge"></i> Mis Inscripciones</h3>
+                    <div id="mySignupsList" class="market-grid">
+                        <!-- JS listará donde se inscribió el usuario -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brackets en Vivo -->
+            <div class="tournament-brackets">
+                <h3 class="sub-title"><i class="fas fa-sitemap"></i> Brackets en Vivo <span class="badge jonin">LIVE</span></h3>
+                <p style="text-align: center; color: var(--gray); font-size: 0.9rem;">Seguí el avance del torneo en tiempo real. Los enfrentamientos de la Fase 1 son aleatorios.</p>
+                
+                <div class="bracket-wrapper" id="publicBracket">
+                    <!-- JS generará el bracket aquí -->
+                    <p style="color:var(--gray); text-align:center; width:100%; padding:40px;">Esperando sorteo de llaves por parte del Administrador...</p>
+                </div>
+            </div>
+
+            <!-- Tiers Ninja -->
+            <div class="tiers-display">
+                <h3 class="sub-title">Clasificación por Tiers Ninja</h3>
+                <div class="tiers-grid">
+                    <div class="tier-card">
+                        <div class="tier-icon genin"><i class="fas fa-seedling"></i></div>
+                        <h4>Genin</h4>
+                        <p>Guerrero - Maestro</p>
+                        <span class="tier-range">0 - 50 ★</span>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-icon chunin"><i class="fas fa-bolt"></i></div>
+                        <h4>Chunin</h4>
+                        <p>Gran Maestro I-V</p>
+                        <span class="tier-range">51 - 100 ★</span>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-icon jonin"><i class="fas fa-fire"></i></div>
+                        <h4>Jonin</h4>
+                        <p>Épico - Leyenda</p>
+                        <span class="tier-range">101 - 200 ★</span>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-icon kage"><i class="fas fa-dragon"></i></div>
+                        <h4>Kage</h4>
+                        <p>Mítico - Glorioso</p>
+                        <span class="tier-range">200+ ★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ninja Clips / Offtopic Highlights -->
+            <div id="ninja-clips" class="section" style="margin-top: 50px;">
+                <div class="container">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                        <div>
+                            <h3 class="sub-title"><i class="fas fa-clapperboard"></i> Archivos del <span class="accent">Abismo</span></h3>
+                            <p style="color:var(--gray); font-size:0.85rem;">Tus mejores jugadas, tu camino a la fama.</p>
+                        </div>
+                        <button class="btn btn-glow" onclick="document.getElementById('clipUploadModal').classList.remove('hidden')">
+                            <i class="fas fa-cloud-upload-alt"></i> Subir Jugada
+                        </button>
+                    </div>
+
+                    <div style="background: rgba(255,154,0,0.05); border: 1px dashed var(--naruto-orange); padding: 15px; border-radius: 10px; margin-bottom: 30px; text-align: center;">
+                        <p style="color: var(--naruto-orange); font-size: 0.85rem; font-weight: 500;">
+                            <i class="fas fa-bullhorn"></i> <b>Política de Crecimiento Mutuo:</b> Te damos difusión ante scouts y clanes, a cambio vos nos ayudás compartiendo la página en tus grupos de Facebook o WhatsApp. ¡Crezcamos juntos!
+                        </p>
+                    </div>
+
+                    <div id="clipsGrid" class="market-grid">
+                        <!-- JS generará los clips aquí -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Subir Clip -->
+            <div id="clipUploadModal" class="modal hidden">
+                <div class="modal-content" style="max-width: 500px;">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-video"></i> Compartir Jugada</h3>
+                        <button class="close-modal" onclick="this.closest('.modal').classList.add('hidden')">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <label style="font-size:0.75rem; color:var(--gray);">Título de la Jugada</label>
+                        <input type="text" id="clipTitle" placeholder="Ej: Savage con Lancelot..." style="width:100%; padding:10px; margin-bottom:15px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px;">
+                        
+                        <label style="font-size:0.75rem; color:var(--gray);">Link del Video (TikTok/YouTube) o Imagen</label>
+                        <input type="text" id="clipUrl" placeholder="URL del archivo..." style="width:100%; padding:10px; margin-bottom:15px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px;">
+                        
+                        <div style="background:rgba(0,0,0,0.2); padding:10px; border-radius:8px; margin-bottom:15px;">
+                            <p style="font-size:0.7rem; color:var(--gray);"><i class="fas fa-info-circle"></i> Al subir tu contenido, aceptás compartir MBL Arg en al menos una comunidad externa.</p>
+                        </div>
+                        
+                        <button class="btn btn-glow btn-full" id="saveClipBtn">
+                            <i class="fas fa-check"></i> PUBLICAR Y DIFUNDIR
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sponsors & Alianzas -->
+            <div id="sponsorship" class="section-alt" style="margin-top: 80px; padding: 50px 30px; background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,210,255,0.05) 100%); border-radius: 20px; border: 1px solid var(--glass-border);">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h3 class="sub-title"><i class="fas fa-handshake"></i> Alianza de <span class="accent">Sponsors</span></h3>
+                    <p style="color: var(--gray); max-width: 600px; margin: 10px auto;">¿Querés que tu marca sea vista por la comunidad más competitiva de Mobile Legends en Argentina? Unite a nuestra red de aliados estratégicos.</p>
+                </div>
+
+                <div class="market-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Beneficios -->
+                    <div class="ninja-card chidori-frame" style="background: rgba(255,255,255,0.02);">
+                        <h4 style="color: var(--neon-blue);"><i class="fas fa-chart-line"></i> ¿Por qué MBL Arg?</h4>
+                        <ul style="color: var(--gray); font-size: 0.85rem; padding-left: 20px; margin-top: 15px; line-height: 1.6;">
+                            <li>Presencia en torneos con +500 espectadores.</li>
+                            <li>Banners publicitarios en web y stream (Kick/TikTok).</li>
+                            <li>Menciones exclusivas de marca durante las transmisiones.</li>
+                            <li>Acceso directo a un nicho gamer joven y altamente activo.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Formulario de Propuesta -->
+                    <div class="ninja-card" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(0,240,255,0.1);">
+                        <h4 style="margin-bottom: 15px;"><i class="fas fa-file-signature"></i> Envía tu Propuesta</h4>
+                        <form id="sponsorForm">
+                            <input type="text" id="sponsorBrand" placeholder="Nombre de la Marca/Empresa" style="width:100%; padding:10px; margin-bottom:10px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px;" required>
+                            <input type="email" id="sponsorEmail" placeholder="Correo de Contacto" style="width:100%; padding:10px; margin-bottom:10px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px;" required>
+                            <select id="sponsorBudget" style="width:100%; padding:10px; margin-bottom:10px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px;">
+                                <option value="starter">Inversión Inicial (Sponsoreo de Torneo)</option>
+                                <option value="medium">Alianza Estratégica (Publicidad Trimestral)</option>
+                                <option value="elite">Sponsor Oficial (Exclusividad)</option>
+                                <option value="custom">Otro / Oferta Personalizada</option>
+                            </select>
+                            <textarea id="sponsorProposal" placeholder="Describí tu propuesta u oferta económica..." style="width:100%; height:80px; padding:10px; margin-bottom:15px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px; resize: none;" required></textarea>
+                            <button type="submit" class="btn btn-glow btn-full">
+                                <i class="fas fa-paper-plane"></i> ENVIAR PROPUESTA FORMAL
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Liga -->
+            <div class="league-table-wrap">
+                <h3 class="sub-title">Tabla de Posiciones</h3>
+                <table class="league-table">
+                    <thead>
+                        <tr><th>#</th><th>Jugador</th><th>Tier</th><th>V</th><th>E</th><th>D</th><th>Pts</th></tr>
+                    </thead>
+                    <tbody id="leagueBody">
+                        <tr><td>1</td><td>Lunatico</td><td><span class="badge kage">Kage</span></td><td>12</td><td>1</td><td>0</td><td>37</td></tr>
+                        <tr><td>2</td><td>PhantomKing</td><td><span class="badge kage">Kage</span></td><td>10</td><td>2</td><td>1</td><td>32</td></tr>
+                        <tr><td>3</td><td>ShadowSlayer</td><td><span class="badge jonin">Jonin</span></td><td>9</td><td>1</td><td>3</td><td>28</td></tr>
+                        <tr><td>4</td><td>NeonBlade</td><td><span class="badge jonin">Jonin</span></td><td>7</td><td>3</td><td>3</td><td>24</td></tr>
+                        <tr><td>5</td><td>CrimsonGhost</td><td><span class="badge chunin">Chunin</span></td><td>5</td><td>2</td><td>6</td><td>17</td></tr>
+                        <tr><td>6</td><td>RookieNinja</td><td><span class="badge genin">Genin</span></td><td>2</td><td>1</td><td>10</td><td>7</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulario de Verificación -->
+            <div class="verify-section">
+                <h3 class="sub-title"><i class="fas fa-shield-halved"></i> Verificación Anti-Smurf</h3>
+                <form class="verify-form" id="verifyForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nickname en ML</label>
+                            <input type="text" placeholder="Tu nombre en Mobile Legends" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ID de Jugador</label>
+                            <input type="text" placeholder="Ej: 123456789" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Rango Actual</label>
+                            <select required>
+                                <option value="">Seleccionar rango...</option>
+                                <option>Guerrero</option><option>Élite</option><option>Maestro</option>
+                                <option>Gran Maestro</option><option>Épico</option><option>Leyenda</option>
+                                <option>Mítico</option><option>Mítico Glorioso</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estrellas</label>
+                            <input type="number" placeholder="Cantidad de estrellas" min="0" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-camera"></i> Captura de Pantalla del Perfil</label>
+                        <div class="file-upload" id="fileUpload">
+                            <i class="fas fa-cloud-arrow-up"></i>
+                            <p>Arrastrá o hacé clic para subir tu captura</p>
+                            <input type="file" accept="image/*" id="screenshotInput" required>
+                        </div>
+                        <div class="preview-img" id="previewImg"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-check-circle"></i> Enviar Verificación</button>
+                </form>
+            </div>
+
+            <!-- Gráficos de Resultados -->
+            <div class="results-stats">
+                <h3 class="sub-title"><i class="fas fa-chart-bar"></i> Estadísticas de Combate</h3>
+                <div class="chart-container-wrap chidori-frame">
+                    <div class="chidori-bolt bolt-1"></div>
+                    <div class="chidori-bolt bolt-2"></div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 20px; text-align: center;">Rendimiento de los Top 5 Players en el último torneo finalizado.</p>
+                    <canvas id="resultsChart" style="max-height: 400px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== THE TAVERN ===== -->
+    <section id="tavern" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// COMUNIDAD</p>
+                <h2 class="section-title">The <span class="accent">Tavern</span></h2>
+                <p class="section-sub">Chat global en tiempo real. Ingresá con tu Nickname.</p>
+            </div>
+
+            <div class="tavern-wrapper">
+                <!-- Login al chat -->
+                <div class="chat-login" id="chatLogin">
+                    <div class="chat-login-box">
+                        <i class="fas fa-comment-dots fa-3x" style="color:var(--neon-blue);margin-bottom:20px;"></i>
+                        <h3>Ingresá a The Tavern</h3>
+                        <input type="text" id="chatNickname" placeholder="Tu Nickname..." maxlength="20">
+                        <button class="btn btn-primary" id="chatJoinBtn"><i class="fas fa-door-open"></i> Entrar</button>
+                    </div>
+                </div>
+                <!-- Chat activo -->
+                <div class="chat-room hidden" id="chatRoom">
+                    <div class="chat-header">
+                        <span><i class="fas fa-circle" style="color:#0f0;font-size:8px;"></i> The Tavern - Chat Global</span>
+                        <span id="chatUserCount">1 online</span>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Escribí tu mensaje..." maxlength="300">
+                        <button class="btn btn-glow" id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <p class="chat-mod-notice"><i class="fas fa-robot"></i> Moderación automática de toxicidad activa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MERCADO DE FICHAJES ===== -->
+    <section id="market" class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// MATCHMAKING NINJA</p>
+                <h2 class="section-title">Mercado de <span class="accent">Fichajes</span></h2>
+                <p class="section-sub">Sincronización inteligente entre ninjas solitarios y escuadrones de élite.</p>
+            </div>
+
+            <!-- Sugerencias Kage (Matchmaking) -->
+            <div id="matchmakingSection" class="hidden" style="background: rgba(0,210,255,0.05); border: 1px dashed var(--neon-blue); border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+                <h4 style="color: var(--neon-blue); margin-bottom: 10px;"><i class="fas fa-wand-magic-sparkles"></i> Sugerencias del Kage Assistant</h4>
+                <p id="matchmakingDesc" style="font-size: 0.85rem; color: var(--gray);">Iniciá sesión para recibir sugerencias basadas en tus roles.</p>
+                <div id="suggestedGrid" class="market-grid" style="margin-top: 15px;"></div>
+            </div>
+
+            <div class="bingo-tabs">
+                <button class="tab-btn active" data-market="players">Ninjas buscan Equipo</button>
+                <button class="tab-btn" data-market="squads">Escuadrones buscan Ninja</button>
+            </div>
+
+            <div class="market-filters">
+                <select id="filterRole">
+                    <option value="all">Todos los Roles</option>
+                    <option value="TANKE">🛡️ TANKE</option>
+                    <option value="SUPORT">🩹 SUPORT</option>
+                    <option value="MIDLINE">🔮 MIDLINE</option>
+                    <option value="ADC">🏹 ADC</option>
+                    <option value="JUNGLA">⚔️ JUNGLA</option>
+                </select>
+                <select id="filterTier">
+                    <option value="all">Todos los Tiers</option>
+                    <option value="kage">Kage</option>
+                    <option value="jonin">Jonin</option>
+                    <option value="chunin">Chunin</option>
+                    <option value="genin">Genin</option>
+                </select>
+                <input type="text" id="filterSearch" placeholder="Buscar por nombre...">
+            </div>
+
+            <div class="market-grid" id="marketGrid">
+                <!-- JS genera las cards aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PLAYER PROMOTION ===== -->
+    <section id="promo" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// SELF-PROMOTION</p>
+                <h2 class="section-title">Promociona tu <span class="accent">Nivel</span></h2>
+                <p class="section-sub">Sube tus estadísticas de temporada y deja que los escuadrones te encuentren.</p>
+            </div>
+
+            <div class="verify-section">
+                <h3 class="sub-title"><i class="fas fa-chart-line"></i> Estadísticas de Temporada</h3>
+                <form class="verify-form" id="promoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Winrate Actual (%)</label>
+                            <input type="number" step="0.01" placeholder="Ej: 65.5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Partidas Jugadas</label>
+                            <input type="number" placeholder="Ej: 350" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Rol Primario</label>
+                            <select id="primaryRole" required>
+                                <option value="">Seleccionar rol...</option>
+                                <option value="TANKE">🛡️ TANKE</option>
+                                <option value="SUPORT">🩹 SUPORT</option>
+                                <option value="MIDLINE">🔮 MIDLINE</option>
+                                <option value="ADC">🏹 ADC</option>
+                                <option value="JUNGLA">⚔️ JUNGLA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Rol Secundario (Opcional)</label>
+                            <select id="secondaryRole">
+                                <option value="">Ninguno</option>
+                                <option value="TANKE">🛡️ TANKE</option>
+                                <option value="SUPORT">🩹 SUPORT</option>
+                                <option value="MIDLINE">🔮 MIDLINE</option>
+                                <option value="ADC">🏹 ADC</option>
+                                <option value="JUNGLA">⚔️ JUNGLA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-image"></i> Captura de Winrate/Estadísticas</label>
+                        <div class="file-upload">
+                            <i class="fas fa-upload"></i>
+                            <p>Sube tu prueba de rendimiento</p>
+                            <input type="file" accept="image/*" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-glow btn-full">Publicar Perfil Pro</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMMUNITIES & RECRUITMENT ===== -->
+    <section id="communities" class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// CLANES & SQUADS</p>
+                <h2 class="section-title">Hub de <span class="accent">Comunidades</span></h2>
+                <p class="section-sub">Busca escuadrones activos o promociona tu propia comunidad.</p>
+            </div>
+
+            <div class="market-grid" id="communityGrid">
+                <!-- Mock Communities -->
+                <div class="ninja-card">
+                    <div class="card-avatar"><i class="fas fa-users"></i></div>
+                    <h3>ARG Legends</h3>
+                    <p class="card-role">Reclutando: Tank/Support</p>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-bottom: 15px;">Comunidad activa con más de 100 miembros. Torneos internos semanales.</p>
+                    <button class="btn btn-outline btn-full">Postularse</button>
+                </div>
+                <div class="ninja-card">
+                    <div class="card-avatar"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Team Abismo</h3>
+                    <p class="card-role">Reclutando: Jungla Pro</p>
+                    <p style="font-size: 0.8rem; color: var(--gray); margin-bottom: 15px;">Enfoque 100% competitivo. Solo jugadores Tier Jonin o superior.</p>
+                    <button class="btn btn-outline btn-full">Postularse</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTNERS & SAAS ===== -->
+    <section id="partners" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// ALIADOS ESTRATÉGICOS</p>
+                <h2 class="section-title">Planes para <span class="text-red">Organizadores</span></h2>
+                <p class="section-sub">Usa nuestra infraestructura para gestionar tus propios torneos profesionales.</p>
+            </div>
+
+            <div class="tiers-grid">
+                <!-- Plan Básico -->
+                <div class="tier-card">
+                    <div class="tier-icon chunin"><i class="fas fa-handshake"></i></div>
+                    <h4>Plan Aliado</h4>
+                    <p>Para torneos 1v1 y 2v2</p>
+                    <div style="margin: 15px 0;">
+                        <span class="tier-range">$3.000 ARS / 3 USD</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.8rem; color: var(--gray); text-align: left; margin-bottom: 20px;">
+                        <li><i class="fas fa-check accent"></i> Panel de Gestión Simple</li>
+                        <li><i class="fas fa-check accent"></i> Tabla de Puntos Automática</li>
+                        <li><i class="fas fa-check accent"></i> 1 Torneo Activo</li>
+                    </ul>
+                    <button class="btn btn-primary btn-full" id="planAliadoBtn"><i class="fas fa-wallet"></i> Contratar (Mercado Pago)</button>
+                </div>
+                <!-- Plan Pro -->
+                <div class="tier-card">
+                    <div class="tier-icon kage"><i class="fas fa-crown"></i></div>
+                    <h4>Plan Kage Elite</h4>
+                    <p>Para torneos 3v3 y 5v5</p>
+                    <div style="margin: 15px 0;">
+                        <span class="tier-range">$8.000 ARS / 10 USD</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.8rem; color: var(--gray); text-align: left; margin-bottom: 20px;">
+                        <li><i class="fas fa-check accent"></i> Gestión Completa de Brackets</li>
+                        <li><i class="fas fa-check accent"></i> Sistema Bo3 Automático</li>
+                        <li><i class="fas fa-check accent"></i> Soporte Anti-Smurf</li>
+                    </ul>
+                    <button class="btn btn-glow btn-full" id="planKageBtn"><i class="fas fa-wallet"></i> Contratar (Mercado Pago)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BATTLE BEATS ===== -->
+    <section id="beats" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// MÚSICA</p>
+                <h2 class="section-title">Battle <span class="text-red">Beats</span></h2>
+                <p class="section-sub">Pagá una micro-transacción para agregar tu canción favorita a la cola pública.</p>
+            </div>
+
+            <div class="beats-wrapper">
+                <div class="beats-player">
+                    <div class="now-playing">
+                        <div class="vinyl-disc"><i class="fas fa-compact-disc fa-spin"></i></div>
+                        <div class="now-info">
+                            <p class="np-label">Reproduciendo ahora</p>
+                            <h3 id="npTitle">Esperando canciones...</h3>
+                            <p id="npUser">---</p>
+                        </div>
+                        <button class="btn-mute" id="btnMute" title="Mute/Unmute"><i class="fas fa-volume-high"></i></button>
+                    </div>
+                    <div class="beats-progress"><div class="beats-bar" id="beatsBar"></div></div>
+                </div>
+
+                <div class="beats-queue">
+                    <h4><i class="fas fa-list-ol"></i> Cola de Reproducción</h4>
+                    <ul id="beatsQueue">
+                        <li><span>🎵 Legends Never Die - Against The Current</span><span class="queue-user">por ShadowSlayer</span></li>
+                        <li><span>🎵 Rise - League of Legends</span><span class="queue-user">por NeonBlade</span></li>
+                        <li><span>🎵 Warriors - Imagine Dragons</span><span class="queue-user">por Matías</span></li>
+                    </ul>
+                </div>
+
+                <div class="beats-add">
+                    <h4><i class="fas fa-plus-circle"></i> Agregar Canción</h4>
+                    <input type="text" id="beatUrl" placeholder="Pegá un link de YouTube...">
+                    <button class="btn btn-primary" id="beatAddBtn"><i class="fas fa-wallet"></i> Mercado Pago ($200 ARS)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DONACIONES ===== -->
+    <section id="donate" class="section">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// APOYÁ EL PROYECTO</p>
+                <h2 class="section-title">Dona a <span class="accent">MBL Arg</span></h2>
+                <p class="section-sub">Tu aporte nos ayuda a mantener la plataforma, organizar torneos y mejorar la comunidad.</p>
+            </div>
+
+            <div class="beats-wrapper">
+                <div class="beats-player" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">❤️</div>
+                    <h3 style="margin-bottom: 10px;">Apoyá a la comunidad ninja</h3>
+                    <p style="color: var(--gray); margin-bottom: 25px; font-size: 0.9rem;">Cada donación, sin importar el monto, nos ayuda a crecer. ¡Gracias por ser parte!</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; text-align: left;">
+                        <div style="background: var(--bg-dark); border-radius: 10px; padding: 20px; border: 1px solid rgba(255,154,0,0.2);">
+                            <p style="font-size: 0.75rem; color: var(--naruto-orange); margin-bottom: 8px; font-weight: 700;"><i class="fas fa-flag"></i> PESOS ARGENTINOS (ARS)</p>
+                            <p style="font-size: 1.1rem; font-weight: 700; color: var(--white);"><i class="fas fa-copy"></i> matias.mj7</p>
+                            <p style="font-size: 0.7rem; color: var(--gray); margin-top: 5px;">Mercado Pago / Transferencia</p>
+                        </div>
+                        <div style="background: var(--bg-dark); border-radius: 10px; padding: 20px; border: 1px solid rgba(0,210,255,0.2);">
+                            <p style="font-size: 0.75rem; color: var(--neon-blue); margin-bottom: 8px; font-weight: 700;"><i class="fas fa-globe"></i> DÓLARES (USD)</p>
+                            <p style="font-size: 1.1rem; font-weight: 700; color: var(--white);"><i class="fas fa-copy"></i> incubar.soja.salida</p>
+                            <p style="font-size: 0.7rem; color: var(--gray); margin-top: 5px;">Mercado Pago / Transferencia</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-size: 0.85rem; color: var(--celeste); display: block; margin-bottom: 8px;">Monto a donar (opcional)</label>
+                        <input type="text" id="donateAmount" placeholder="Ej: $500 ARS o $5 USD" style="padding: 12px; background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: var(--white); font-family: var(--font); width: 100%; max-width: 300px; text-align: center;">
+                    </div>
+
+                    <button class="btn btn-primary" id="donateBtn" style="font-size: 1rem; padding: 15px 40px;">
+                        <i class="fab fa-whatsapp"></i> Donar y enviar comprobante
+                    </button>
+                    <p style="color: var(--gray); font-size: 0.75rem; margin-top: 15px;"><i class="fas fa-shield-halved"></i> Tu donación es 100% voluntaria y se destina al mantenimiento de la plataforma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMIN / KAGE ASSISTANT ===== -->
+    <section id="admin" class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-tag">// ADMINISTRACIÓN</p>
+                <h2 class="section-title">Kage <span class="accent">Assistant</span></h2>
+                <p class="section-sub">Panel de administración con IA integrada. Solo accesible para Administrador Autorizado (2FA requerido).</p>
+            </div>
+
+            <div class="admin-panel">
+                <div class="admin-lock" id="adminLock">
+                    <i class="fas fa-lock fa-3x" style="color:var(--neon-red);margin-bottom:20px;"></i>
+                    <h3>Acceso Restringido</h3>
+                    <p>Ingresá tus credenciales de administrador.</p>
+                    <input type="text" id="adminUser" placeholder="Usuario...">
+                    <input type="password" id="adminPass" placeholder="Contraseña...">
+                    <button class="btn btn-primary" id="adminLoginBtn"><i class="fas fa-fingerprint"></i> Autenticar (2FA)</button>
+                </div>
+
+                <div class="admin-dashboard hidden" id="adminDash">
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <h4><i class="fas fa-users"></i> Jugadores</h4>
+                            <span class="admin-num">256</span>
+                        </div>
+                        <div class="admin-card">
+                            <h4><i class="fas fa-trophy"></i> Torneos Activos</h4>
+                            <span class="admin-num">3</span>
+                        </div>
+                        <div class="admin-card">
+                            <h4><i class="fas fa-flag"></i> Reportes</h4>
+                            <span class="admin-num">7</span>
+                        </div>
+                        <div class="admin-card">
+                            <h4><i class="fas fa-building"></i> Aliados SaaS</h4>
+                            <span class="admin-num">2</span>
+                        </div>
+                    </div>
+
+                    <div class="kage-ai">
+                        <h4><i class="fas fa-robot"></i> Kage Assistant - IA</h4>
+                        <p class="ai-desc">Modificá CSS y lógica usando lenguaje natural.</p>
+                        <div class="ai-chat" id="aiChat">
+                            <div class="ai-msg bot"><i class="fas fa-robot"></i> Hola Lunatico. ¿Qué deseas modificar hoy?</div>
+                        </div>
+                        <div class="ai-input-area">
+                            <input type="text" id="aiInput" placeholder="Ej: Cambiá el color del navbar a rojo...">
+                            <button class="btn btn-glow" id="aiSendBtn"><i class="fas fa-wand-magic-sparkles"></i></button>
+                        </div>
+                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="saas-section" style="margin-top: 30px;">
+                            <h4><i class="fas fa-database"></i> Base de Datos de Usuarios</h4>
+                            <p>Visualización de ninjas registrados en el sistema:</p>
+                            <div class="user-db-list" id="userListAdmin" style="background:var(--bg-dark); border-radius:8px; padding:15px; margin-top:10px; max-height:200px; overflow-y:auto;">
+                                <!-- JS llenará esto -->
+                                <p style="color:var(--gray); font-size:0.8rem; text-align:center;">Cargando base de datos local...</p>
+                            </div>
+                        </div>
+
+                        <div class="saas-section" style="margin-top: 30px;">
+                            <h4><i class="fas fa-clipboard-list"></i> Ninjas Inscriptos (Próximo Torneo)</h4>
+                            <p>Lista de personas que completaron el formulario de inscripción:</p>
+                            <div class="signup-list" id="signupListAdmin" style="background:var(--bg-dark); border-radius:8px; padding:15px; margin-top:10px; max-height:200px; overflow-y:auto; border: 1px solid rgba(0,240,255,0.1);">
+                                <!-- JS llenará esto -->
+                                <p style="color:var(--gray); font-size:0.8rem; text-align:center;">No hay nuevas inscripciones.</p>
+                            </div>
+                            <button class="btn btn-glow btn-full" id="importSignupsBtn" style="margin-top: 10px;">
+                                <i class="fas fa-file-import"></i> Cargar Inscriptos al Torneo
+                            </button>
+                        </div>
+
+                        <div class="saas-section" style="margin-top: 30px;">
+                            <h4><i class="fas fa-sitemap"></i> Gestión de Torneos (Pro Engine)</h4>
+                            <p>Configuración de modalidad y emparejamientos:</p>
+                            
+                            <div style="margin-top: 15px;">
+                                <label style="font-size: 0.7rem; color: var(--gray);">Nombre del Torneo</label>
+                                <input type="text" id="tournamentNameInput" placeholder="Ej: Copa Konoha Verano" style="width:100%; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px; margin-bottom: 10px;">
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--gray);">Categoría</label>
+                                    <select id="tournamentCategory" style="width:100%; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px;">
+                                        <option value="1v1">Duelo 1v1</option>
+                                        <option value="2v2">Duos 2v2</option>
+                                        <option value="3v3">Escuadrón 3v3</option>
+                                        <option value="5v5">Guerra 5v5</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--gray);">Modalidad</label>
+                                    <select id="tournamentMode" style="width:100%; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px;">
+                                        <option value="elimination">Eliminatoria Directa</option>
+                                        <option value="league">Liga (Todos contra todos)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--gray);">Fecha de Inicio</label>
+                                    <input type="datetime-local" id="tournamentDate" style="width:100%; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--gray);">Cupos Máximos</label>
+                                    <input type="number" id="tournamentMaxSeats" value="16" style="width:100%; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--gray);">Participantes</label>
+                                    <div style="display: flex; gap: 5px;">
+                                        <input type="text" id="newPlayerAdmin" placeholder="Nombre..." style="flex:1; padding:8px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:5px;">
+                                        <button class="btn" id="addPlayerBtn" style="padding:5px 10px; background:var(--neon-blue);"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div style="grid-column: span 2;">
+                                    <button class="btn btn-outline btn-full" onclick="simulateFullQuota()" style="padding:5px; font-size:0.7rem; border-color:var(--neon-red); color:var(--neon-red); margin-bottom: 5px;">
+                                        <i class="fas fa-bolt"></i> Simular Llenado (Demo Cupos)
+                                    </button>
+                                    <button class="btn btn-primary btn-full" id="publishTournamentBtn">
+                                        <i class="fas fa-upload"></i> PUBLICAR TORNEO OFICIAL
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="participantList" style="margin-top: 15px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px; font-size: 0.8rem; max-height: 100px; overflow-y: auto;">
+                                <!-- Lista de jugadores inscritos -->
+                                <p style="color:var(--gray); text-align:center;">No hay jugadores cargados.</p>
+                            </div>
+
+                            <button class="btn btn-primary btn-full" id="shuffleBracketBtn" style="margin-top: 15px; background: var(--naruto-orange);">
+                                <i class="fas fa-magic"></i> Generar Fixture Automático
+                            </button>
+                            
+                            <div class="bracket-wrapper" id="adminBracket" style="margin-top: 20px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; min-height: 100px;">
+                                <!-- Admin controlará los brackets o la liga aquí -->
+                                <p style="color:var(--gray); text-align:center; padding:20px; font-size:0.8rem;">Configurá el torneo y dale a "Generar".</p>
+                            </div>
+                        </div>
+
+                        <div class="saas-section" style="margin-top: 30px;">
+                            <h4><i class="fas fa-trophy"></i> Motor de Resultados</h4>
+                            <p>Finalizar torneo actual y actualizar estadísticas globales:</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                                <input type="text" id="winnerName" placeholder="Nombre del Ganador" style="padding:10px; background:var(--bg-dark); border:1px solid rgba(255,255,255,0.1); border-radius:5px; color:#fff;">
+                                <button class="btn btn-glow" id="updateStatsBtn"><i class="fas fa-sync"></i> Finalizar y Publicar</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="logo">MBL<span class="accent">ARG</span></h3>
+                    <p>La liga de E-sports más competitiva de Argentina. Plataforma Cyber-Ninja.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <a href="#hero">Inicio</a>
+                    <a href="#bingo-book">Libro Bingo</a>
+                    <a href="#tournaments">Torneos</a>
+                    <a href="#tavern">The Tavern</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Comunidad</h4>
+                    <a href="#market">Mercado de Fichajes</a>
+                    <a href="#beats">Battle Beats</a>
+                    <a href="#admin">Panel Admin</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Conectar</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://kick.com/Lunatico7" target="_blank"><i class="fas fa-bolt"></i></a>
+                        <a href="https://www.tiktok.com/@eltioobi" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MBL Arg. Proyecto Cyber-Ninja. Todos los derechos reservados.</p>
+                <p><i class="fas fa-lock"></i> SSL Encriptado | <i class="fas fa-shield-halved"></i> Anti-DDoS | <i class="fas fa-database"></i> Firebase Sync</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL AUTENTICACIÓN -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content auth-container">
+            <span class="close-modal" id="closeAuth">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Ingresar</button>
+                <button class="auth-tab" id="registerTab">Registrarse</button>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="loginPass" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Entrar al Abismo</button>
+            </form>
+
+            <form id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label>Nombre de Usuario (Ninja Name)</label>
+                    <input type="text" id="regUser" placeholder="Ej: NarutoUz" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" required>
+                </div>
+                <button type="submit" class="btn btn-glow btn-full">Crear Cuenta Ninja</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE PAGOS UNIFICADO -->
+    <div id="paymentModal" class="modal hidden">
+        <div class="modal-content payment-container">
+            <span class="close-modal" id="closePayment">&times;</span>
+            <div class="payment-header">
+                <i class="fas fa-credit-card"></i>
+                <h3 id="paymentTitle">Finalizar Suscripción</h3>
+            </div>
+            
+            <div id="paymentStep1" class="payment-step">
+                <p class="payment-desc">Para activar tu plan, realizá la transferencia a cualquiera de nuestras cuentas oficiales:</p>
+                <div class="alias-box">
+                    <div class="alias-item">
+                        <label>🇦🇷 Alias Mercado Pago (ARS)</label>
+                        <div class="copy-field">
+                            <span class="alias-text masked" id="alias-mp">••••••••</span>
+                            <div class="copy-actions">
+                                <button class="view-btn" onclick="toggleAlias('alias-mp', 'matias.mj7', this)"><i class="fas fa-eye"></i></button>
+                                <button class="copy-btn" onclick="copyAlias('matias.mj7')"><i class="fas fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alias-item">
+                        <label>🌎 Alias Global (USD/Crypto)</label>
+                        <div class="copy-field">
+                            <span class="alias-text masked" id="alias-global">••••••••</span>
+                            <div class="copy-actions">
+                                <button class="view-btn" onclick="toggleAlias('alias-global', 'incubar.soja.salida', this)"><i class="fas fa-eye"></i></button>
+                                <button class="copy-btn" onclick="copyAlias('incubar.soja.salida')"><i class="fas fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-amount-display">
+                    Monto a transferir: <span id="paymentAmount" class="text-red">---</span>
+                </div>
+                <button class="btn btn-primary btn-full" id="confirmPaymentBtn">
+                    <i class="fab fa-whatsapp"></i> Enviar Comprobante
+                </button>
+            </div>
+
+            <div id="paymentStep2" class="payment-step hidden">
+                <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                <h3 style="color:var(--neon-blue);">¡Ninja Activado!</h3>
+                <p style="font-size: 0.9rem; color: var(--gray);">Ya hemos recibido tu solicitud. Mientras verificamos el comprobante, podés disfrutar de tus beneficios:</p>
+                <ul class="benefits-list" id="benefitsDisplay">
+                    <!-- JS llenará los beneficios según el plan -->
+                </ul>
+                <button class="btn btn-glow btn-full" onclick="location.reload()">Empezar a Usar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
