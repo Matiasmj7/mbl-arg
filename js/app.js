@@ -941,6 +941,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- GESTIÓN DE HISTORIAL DE PARTIDOS (TIMELINE) ---
+    window.registrarPartidoEnHistorial = (userNickname, partidoData) => {
+        let historialGlobal = JSON.parse(localStorage.getItem('mbl_historial_partidos')) || {};
+        if(!historialGlobal[userNickname]) {
+            historialGlobal[userNickname] = [];
+        }
+
+        const nuevoRegistro = {
+            id: 'match_' + Date.now(),
+            torneo: partidoData.torneo || 'Torneo Oficial',
+            fase: partidoData.fase || 'Fase de Grupos',
+            rival: partidoData.rival || 'TBD',
+            resultado: partidoData.resultado || 'Victoria', // 'Victoria' o 'Derrota'
+            eloCambio: partidoData.eloCambio || (partidoData.resultado === 'Victoria' ? +16 : -16),
+            fecha: new Date().toLocaleDateString('es-AR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
+        };
+
+        // Guardar manteniendo máximo los últimos 20 movimientos
+        historialGlobal[userNickname].unshift(nuevoRegistro);
+        if(historialGlobal[userNickname].length > 20) {
+            historialGlobal[userNickname].pop();
+        }
+
+        localStorage.setItem('mbl_historial_partidos', JSON.stringify(historialGlobal));
+    };
+
     window.advancePlayerPro = (currentStage, matchIndex, winner) => {
         if(!winner || winner === 'TBD') return;
         const nextStage = currentStage + 1;
@@ -951,12 +977,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetEl = document.getElementById(targetId);
         const publicTargetEl = document.querySelector(`#publicBracket #${targetId}`);
 
+        // Identificar el perdedor del match
+        const matchItem = document.getElementById(`stage${currentStage}-m${matchIndex}-p1`) ?
+                          document.getElementById(`stage${currentStage}-m${matchIndex}-p1`).parentElement : null;
+        let loser = 'TBD';
+        if(matchItem) {
+            const p1 = document.getElementById(`stage${currentStage}-m${matchIndex}-p1`).innerText;
+            const p2 = document.getElementById(`stage${currentStage}-m${matchIndex}-p2`).innerText;
+            loser = (winner === p1) ? p2 : p1;
+        }
+
         if(targetEl) {
             targetEl.innerText = winner;
             targetEl.classList.add('winner');
             if(publicTargetEl) {
                 publicTargetEl.innerText = winner;
                 publicTargetEl.classList.add('winner');
+            }
+
+            // Registrar en historial para Ganador y Perdedor
+            if(winner !== 'TBD') {
+                window.registrarPartidoEnHistorial(winner, { torneo: 'Copa Oficial', fase: `Ronda ${currentStage + 1}`, rival: loser, resultado: 'Victoria', eloCambio: +16 });
+            }
+            if(loser !== 'TBD') {
+                window.registrarPartidoEnHistorial(loser, { torneo: 'Copa Oficial', fase: `Ronda ${currentStage + 1}`, rival: winner, resultado: 'Derrota', eloCambio: -16 });
             }
 
             // Simular Alerta para el Usuario
@@ -1096,10 +1140,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- RENDERIZADO DE PERFIL Y TIMELINE ---
+    window.renderPerfilJugador = (userNickname) => {
+        const perfilModal = document.getElementById('perfilModal');
+        const perfilNombre = document.getElementById('perfilNombre');
+        const perfilElo = document.getElementById('perfilElo');
+        const historialContainer = document.getElementById('historialPartidosContainer');
+
+        if(!perfilModal) return;
+
+        perfilNombre.innerText = userNickname;
+
+        // Obtener historial del jugador
+        const historialGlobal = JSON.parse(localStorage.getItem('mbl_historial_partidos')) || {};
+        const historialUser = historialGlobal[userNickname] || [];
+
+        // Calcular ELO simulado
+        let eloActual = 1200;
+        historialUser.forEach(item => eloActual += item.eloCambio);
+        perfilElo.innerText = eloActual;
+
+        if(historialUser.length === 0) {
+            historialContainer.innerHTML = `<p style="color: var(--gray); text-align: center; padding: 20px 0; font-size: 0.85rem;">Este ninja aún no ha registrado combates oficiales.</p>`;
+        } else {
+            historialContainer.innerHTML = historialUser.map(item => {
+                const esVic = item.resultado === 'Victoria';
+                const colorBadge = esVic ? 'var(--neon-blue)' : 'var(--neon-red)';
+                const iconVic = esVic ? 'fa-trophy' : 'fa-skull';
+                const eloStr = item.eloCambio > 0 ? `+${item.eloCambio}` : `${item.eloCambio}`;
+
+                return `
+                    <div style="background: rgba(0,0,0,0.4); border-left: 3px solid ${colorBadge}; border-radius: 6px; padding: 10px 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 700; color: var(--white);">
+                                <i class="fas ${iconVic}" style="color: ${colorBadge}; margin-right: 5px;"></i> ${item.torneo} <span style="font-size: 0.7rem; color: var(--gray);">(${item.fase})</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); margin-top: 2px;">
+                                vs <b>${item.rival}</b> • <span style="color: var(--gray);">${item.fecha}</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="font-size: 0.8rem; font-weight: 800; color: ${colorBadge}; display: block;">${item.resultado.toUpperCase()}</span>
+                            <span style="font-size: 0.7rem; color: ${esVic ? '#53fc18' : 'var(--neon-red)'}; font-family: monospace;">${eloStr} ELO</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        perfilModal.classList.remove('hidden');
+    };
+
     function updateAuthUI(user) {
         if(user) {
             btnAuth.innerHTML = `<i class="fas fa-user-ninja"></i> ${user.nickname}`;
             btnAuth.classList.add('logged-in');
+
+            // Permitir abrir el perfil al hacer click en el botón de usuario
+            btnAuth.onclick = (e) => {
+                e.preventDefault();
+                window.renderPerfilJugador(user.nickname);
+            };
         }
     }
 
