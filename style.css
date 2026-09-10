@@ -1,0 +1,1205 @@
+/* ==========================================
+   VARIABLES Y BASE
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Rajdhani:wght@600;700&display=swap');
+
+:root {
+    --blue: #00d2ff;
+    --purple: #8a2be2;
+    --green: #39ff14;
+    --red: #ff004c;
+    --bg-dark: #050508;
+    --dark-glass: rgba(10, 10, 15, 0.85);
+    --border-glass: rgba(0, 210, 255, 0.3);
+
+    /* NUEVO: tipografía de impacto para títulos, sistema de sombras y grises con mejor contraste */
+    --font-heading: 'Rajdhani', 'Montserrat', sans-serif;
+    --muted: #b3b3bd;
+    --muted-soft: #8a8a99;
+    --shadow-glow-soft: 0 0 12px rgba(0, 210, 255, 0.35);
+    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 140px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   EFECTOS ESTÉTICOS Y ANIMACIONES
+========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glow más contenido: antes escalaba y brillaba fuerte en TODO. Ahora es un
+   realce sutil, para que el brillo grande quede reservado a lo importante. */
+.glow-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glow-hover:hover {
+    box-shadow: var(--shadow-glow-soft);
+    transform: translateY(-2px);
+    border-color: var(--blue) !important;
+}
+
+/* Pulsos más sutiles: la idea es "esto está vivo", no "esto grita" */
+@keyframes pulse-cyan { 0% { text-shadow: 0 0 4px #00ffff; } 50% { text-shadow: 0 0 12px #00ffff; } 100% { text-shadow: 0 0 4px #00ffff; } }
+@keyframes pulse-red { 0% { color: white; } 50% { color: var(--red); text-shadow: 0 0 8px var(--red); } 100% { color: white; } }
+@keyframes pulse-gold { 0% { color: gold; } 50% { color: #fff; text-shadow: 0 0 8px gold; } 100% { color: gold; } }
+
+.pulse-cyan { animation: pulse-cyan 2.5s infinite; }
+.pulse-red { animation: pulse-red 2.5s infinite; }
+.pulse-gold { animation: pulse-gold 2.5s infinite; }
+
+/* Foco visible para navegación con teclado (accesibilidad, no rompe nada visual con mouse) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   FONDOS DE VIDEO E IMAGEN
+========================================= */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.4;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(5,5,8,0.3) 0%, var(--bg-dark) 100%);
+    z-index: -1;
+}
+
+/* ==========================================
+   NAVEGACIÓN (HEADER)
+========================================= */
+.main-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(5, 5, 8, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-glass);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--blue);
+}
+
+.nav-logo-img {
+    height: 38px;
+    width: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(0,210,255,0.5));
+}
+
+.nav-logo .accent {
+    color: var(--blue);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.menu li a:hover {
+    color: var(--blue);
+    text-shadow: 0 0 8px var(--blue);
+}
+
+.auth-zone {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn-auth {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-auth:hover {
+    background: var(--blue);
+    color: black;
+    box-shadow: 0 0 15px var(--blue);
+}
+
+.user-popover {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: var(--dark-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 5px;
+    flex-direction: column;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+}
+
+.auth-zone:hover .user-popover {
+    display: flex;
+}
+
+.btn-exit {
+    background: none;
+    border: none;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    transition: 0.3s;
+}
+
+.btn-exit:hover {
+    background: rgba(255,0,0,0.2);
+    color: var(--red);
+}
+
+.btn-admin {
+    background: var(--red);
+    color: white !important;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--red);
+}
+
+/* ==========================================
+   NUEVO: MENÚ AGRUPADO (Competir / Comunidad / Tienda)
+   Solo actúa como dropdown en escritorio. En mobile
+   estos grupos se "desarman" (ver media query abajo)
+   y vuelven a verse como una lista plana, igual que antes.
+========================================= */
+.nav-group {
+    position: relative;
+}
+
+.nav-group-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-group-label i {
+    font-size: 0.7rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-group-label:hover {
+    color: var(--blue);
+    text-shadow: 0 0 8px var(--blue);
+}
+
+.nav-group:hover .nav-group-label i {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    min-width: 190px;
+    background: var(--dark-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    padding: 8px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-lift);
+    z-index: 1001;
+    list-style: none;
+}
+
+.nav-group:hover .nav-dropdown {
+    display: flex;
+}
+
+.nav-dropdown li a {
+    display: block;
+    padding: 10px 18px;
+}
+
+.nav-dropdown li a:hover {
+    background: rgba(0, 210, 255, 0.08);
+}
+
+/* ==========================================
+   NUEVO: BRACKET VISUAL DE TORNEOS
+   Columnas por ronda, con scroll horizontal.
+   Es una vista simplificada: no dibuja líneas
+   exactas emparejando cada cruce individual (eso
+   necesitaría calcular posiciones en JS, algo más
+   frágil de mantener) — en cambio, cada partido
+   tiene una línea corta que indica "esto avanza
+   a la siguiente ronda". Es el mismo criterio que
+   usan varias plataformas de torneos en su vista
+   compacta/mobile.
+========================================= */
+#modal-llaves .modal-box {
+    max-width: 95vw !important;
+    width: 950px;
+}
+
+.bracket-scroll {
+    display: flex;
+    gap: 45px;
+    overflow-x: auto;
+    padding: 10px 10px 20px 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 230px;
+    flex-shrink: 0;
+}
+
+.bracket-round-title {
+    color: var(--blue);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+
+.bracket-round-matches {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.bracket-match {
+    position: relative;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.bracket-match:not(.bracket-match-last)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -45px;
+    width: 45px;
+    height: 1px;
+    background: #333;
+}
+
+.bracket-player {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 6px 2px;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.bracket-player.ganador {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.bracket-player.perdedor {
+    color: #555;
+    text-decoration: line-through;
+}
+
+.bracket-vs-divider {
+    border-top: 1px dashed #333;
+    margin: 2px 0;
+}
+
+@media (max-width: 768px) {
+    .bracket-round {
+        min-width: 200px;
+    }
+
+    .bracket-scroll {
+        gap: 30px;
+    }
+
+    .bracket-match:not(.bracket-match-last)::after {
+        right: -30px;
+        width: 30px;
+    }
+}
+
+/* ==========================================
+   NUEVO: NEXUS STORE EN ACORDEÓN
+   Cada categoría de producto (Diamantes, Pases)
+   es un <details> nativo del navegador: no hace
+   falta JavaScript extra, es accesible por
+   teclado y no puede "romperse".
+========================================= */
+#lista-productos-nexus.torneos-grid {
+    display: block; /* el grid real vive DENTRO de cada acordeón, no en el contenedor exterior */
+}
+
+.nexus-accordion {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(0,255,255,0.25);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.nexus-accordion-summary {
+    cursor: pointer;
+    list-style: none;
+    color: #00ffff;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.nexus-accordion-summary::-webkit-details-marker {
+    display: none;
+}
+
+.nexus-accordion-summary::after {
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+}
+
+.nexus-accordion[open] .nexus-accordion-summary::after {
+    transform: rotate(180deg);
+}
+
+/* ==========================================
+   NUEVO: LOGO Y OVERLAY DE MARCA (imágenes propias)
+   Rutas relativas a la raíz del repo: subí los
+   archivos con EXACTAMENTE estos nombres.
+========================================= */
+
+/* Logo como marca de agua detrás de los cruces del torneo/liga */
+#contenedor-llaves-texto {
+    position: relative;
+}
+
+#contenedor-llaves-texto::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    transform: translate(-50%, -50%);
+    background-image: url('/logo-mblarg.png.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#contenedor-llaves-texto > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay decorativo sobre el video del stream en vivo */
+.video-container {
+    position: relative;
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/overlay-card.png.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ==========================================
+   TICKER (ALERTA GLOBAL)
+========================================= */
+.ticker-wrap {
+    width: 100%;
+    background: #000;
+    border-bottom: 1px solid #333;
+    overflow: hidden;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker 25s linear infinite;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* ==========================================
+   ESTRUCTURA PRINCIPAL
+========================================= */
+.content-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.title-main {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.welcome-msg {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin: 18px 0 28px 0;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.section {
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-head {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--blue);
+    padding-left: 15px;
+    text-shadow: 0 0 10px rgba(0,210,255,0.3);
+}
+
+.container-glass {
+    position: relative;
+    background: var(--dark-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 25px;
+    backdrop-filter: blur(8px);
+}
+
+/* NUEVO: acentos de esquina tipo "panel táctico". No dependen de ninguna
+   imagen — es CSS puro, así que nunca se puede romper un link ni pesar
+   de más. Le da ese toque de interfaz profesional sin sobrecargar. */
+.container-glass::before,
+.container-glass::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.container-glass::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--blue);
+    border-left: 2px solid var(--blue);
+    border-radius: 8px 0 0 0;
+}
+
+.container-glass::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid var(--blue);
+    border-right: 2px solid var(--blue);
+    border-radius: 0 0 8px 0;
+}
+
+/* ==========================================
+   BOTONES E INPUTS
+========================================= */
+.btn-primary, .btn-secondary, .btn-save, .btn-filter {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: black;
+    box-shadow: 0 0 10px var(--border-glass);
+}
+
+.btn-primary:hover:not(:disabled) {
+    box-shadow: 0 0 20px var(--blue);
+    transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: rgba(0, 210, 255, 0.1);
+    box-shadow: 0 0 15px var(--border-glass);
+}
+
+.btn-secondary:disabled {
+    border-color: #444;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.btn-filter {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #aaa;
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background: var(--blue);
+    color: black;
+    border-color: var(--blue);
+    box-shadow: 0 0 10px var(--blue);
+}
+
+.btn-save {
+    background: var(--green);
+    color: black;
+    width: 100%;
+}
+
+input, select, textarea {
+    padding: 12px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #333;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 10px rgba(0,210,255,0.2);
+}
+
+/* ==========================================
+   MODALES (CORRECCIÓN Z-INDEX Y :TARGET)
+========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2500;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-box {
+    background: #0a0a0f;
+    border: 1px solid var(--blue);
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+    animation: modalPop 0.3s ease-out;
+}
+
+@keyframes modalPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btn-close:hover {
+    color: var(--red);
+}
+
+/* ==========================================
+   GRID DE TORNEOS Y TIENDA
+========================================= */
+.torneos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.agenda-evento {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 14px;
+    border-left: 4px solid var(--blue);
+}
+
+.agenda-fecha {
+    min-width: 56px;
+    padding: 8px;
+    border-radius: 7px;
+    text-align: center;
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--blue);
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.plan-card {
+    position: relative;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.badge-plan {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: black;
+    padding: 3px 15px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    border-radius: 10px;
+}
+
+.plan-features {
+    list-style: none;
+    margin: 20px 0;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.plan-features li {
+    margin-bottom: 10px;
+}
+
+.price {
+    font-family: var(--font-heading);
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin: 15px 0;
+}
+
+/* ==========================================
+   ABISMO (VIDEOS Y CLIPS)
+========================================= */
+.video-preview-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.video-preview-card:hover .thumbnail-img {
+    filter: brightness(0.7);
+    transform: scale(1.05);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255,255,255,0.7);
+    transition: 0.3s;
+}
+
+.video-preview-card:hover .play-overlay {
+    color: var(--blue);
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.btn-delete-abismo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,0,0,0.8);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.comentario-box {
+    background: rgba(0,0,0,0.3);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    border-left: 2px solid var(--blue);
+}
+
+.comentario-input-group {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.comentario-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+}
+
+.comentario-btn {
+    background: var(--blue);
+    color: black;
+    border: none;
+    padding: 0 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   STREAM Y CHAT LAYOUT
+========================================= */
+.stream-box {
+    padding: 20px;
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 20px rgba(0,210,255,0.1);
+}
+
+.stream-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #333;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.chat-container {
+    background: #050508;
+    border-radius: 8px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-head {
+    background: var(--blue);
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   SALÓN DE LA FAMA (PODIO)
+========================================= */
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.podium-spot {
+    text-align: center;
+    background: var(--dark-glass);
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #333;
+    border-bottom: none;
+    transition: transform 0.3s;
+}
+
+.podium-spot:hover {
+    transform: translateY(-10px);
+}
+
+.podium-spot img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.rank-1 { height: 260px; border-color: gold; box-shadow: 0 -5px 20px rgba(255,215,0,0.2); }
+.rank-1 img { width: 100px; height: 100px; border: 3px solid gold; }
+.rank-1 h4 { color: gold; }
+
+.rank-2 { height: 220px; border-color: silver; }
+.rank-2 img { border: 3px solid silver; }
+.rank-2 h4 { color: silver; }
+
+.rank-3 { height: 190px; border-color: #cd7f32; }
+.rank-3 img { border: 3px solid #cd7f32; }
+.rank-3 h4 { color: #cd7f32; }
+
+/* ==========================================
+   MISCELÁNEOS Y ADMIN
+========================================= */
+.status-open { color: var(--green); }
+.status-progress { color: gold; }
+.status-closed { color: var(--red); }
+
+.admin-form {
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--blue);
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row > * {
+    flex: 1;
+}
+
+.ruleta-blur {
+    filter: blur(2px);
+    transition: filter 0.1s;
+}
+
+/* ==========================================
+   NUEVO: DIFERENCIACIÓN VISUAL POR SECCIÓN
+   (usa los IDs que YA existen en tu HTML, no
+   requiere tocar index.html ni app.js)
+========================================= */
+#lista-torneos .container-glass {
+    border-left: 4px solid var(--blue);
+}
+
+#lista-ligas .container-glass {
+    border-left: 4px solid gold;
+}
+
+#lista-productos-nexus .container-glass,
+#catalogo-tienda .container-glass {
+    border-left: 4px solid #00ffff;
+}
+
+#podio-leyendas .container-glass {
+    border-left: none; /* el podio ya tiene su propia identidad de color por rango */
+}
+
+/* ==========================================
+   NUEVO: SKELETON LOADERS
+   Clases listas para usar el día que actualicemos
+   app.js para reemplazar los textos "Cargando..."
+   por bloques animados. No se activan solas.
+========================================= */
+.skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.12) 37%, rgba(255,255,255,0.05) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-shimmer 1.4s ease infinite;
+    border-radius: 6px;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.skeleton-line {
+    height: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.skeleton-line.short {
+    width: 40%;
+}
+
+.skeleton-card {
+    height: 180px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.skeleton-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* ==========================================
+   NUEVO: SCROLLBAR PERSONALIZADA
+   (Chrome/Edge/Safari; navegadores que no lo
+   soporten simplemente usan la scrollbar normal)
+========================================= */
+.chat-frame,
+#ranking-dinamico,
+.modal-box {
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue) rgba(0,0,0,0.4);
+}
+
+.modal-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE (MÓVILES)
+========================================= */
+@media (max-width: 900px) {
+    .stream-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* NUEVO: en vez de que el menú se parta en 3-4 líneas apretadas,
+       se convierte en una tira horizontal deslizable, como hacen la
+       mayoría de apps de torneos en mobile. No se pierde ningún link,
+       solo cambia cómo se acomodan. */
+    .menu {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu li {
+        flex-shrink: 0;
+    }
+
+    /* En mobile no hay hover, así que el dropdown no tendría cómo abrirse.
+       En vez de eso, "desarmamos" el grupo: sus hijos pasan a ser parte
+       directa de la tira horizontal, igual que en la versión anterior. */
+    .nav-group,
+    .nav-dropdown {
+        display: contents;
+    }
+
+    .nav-group-label {
+        display: none;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .title-main {
+        font-size: 2.5rem;
+    }
+}

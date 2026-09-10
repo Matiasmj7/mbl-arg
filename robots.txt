@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin # Aunque sea una sección de la web, evitamos que se indexe el panel de control directo
-Sitemap: https://mblarg.com.ar/sitemap.xml
