@@ -941,13 +941,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- GESTIÓN DE HISTORIAL DE PARTIDOS (TIMELINE) ---
-    window.registrarPartidoEnHistorial = (userNickname, partidoData) => {
-        let historialGlobal = JSON.parse(localStorage.getItem('mbl_historial_partidos')) || {};
-        if(!historialGlobal[userNickname]) {
-            historialGlobal[userNickname] = [];
-        }
-
+    // --- GESTIÓN DE HISTORIAL DE PARTIDOS (TIMELINE FIRESTORE COMPATIBLE) ---
+    window.registrarPartidoEnHistorial = async (userNickname, partidoData) => {
         const nuevoRegistro = {
             id: 'match_' + Date.now(),
             torneo: partidoData.torneo || 'Torneo Oficial',
@@ -958,13 +953,28 @@ document.addEventListener('DOMContentLoaded', () => {
             fecha: new Date().toLocaleDateString('es-AR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
         };
 
-        // Guardar manteniendo máximo los últimos 20 movimientos
-        historialGlobal[userNickname].unshift(nuevoRegistro);
-        if(historialGlobal[userNickname].length > 20) {
-            historialGlobal[userNickname].pop();
+        // Fallback a LocalStorage para entorno local
+        let historialGlobal = JSON.parse(localStorage.getItem('mbl_historial_partidos')) || {};
+        if(!historialGlobal[userNickname]) {
+            historialGlobal[userNickname] = [];
         }
-
+        historialGlobal[userNickname].unshift(nuevoRegistro);
+        if(historialGlobal[userNickname].length > 20) historialGlobal[userNickname].pop();
         localStorage.setItem('mbl_historial_partidos', JSON.stringify(historialGlobal));
+
+        // Intento de guardado en Firestore si la SDK y db están presentes
+        if(typeof db !== 'undefined' && db.collection) {
+            try {
+                const ninjaRef = db.collection('ninjas').doc(userNickname);
+                if(typeof firebase !== 'undefined' && firebase.firestore && firebase.firestore.FieldValue) {
+                    await ninjaRef.update({
+                        historialPartidos: firebase.firestore.FieldValue.arrayUnion(nuevoRegistro)
+                    });
+                }
+            } catch(e) {
+                console.log("Modo offline / Local fallback para historial:", e);
+            }
+        }
     };
 
     window.advancePlayerPro = (currentStage, matchIndex, winner) => {
