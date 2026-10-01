@@ -1272,3 +1272,41 @@ html, body {
         scroll-behavior: auto !important;
     }
 }
+
+/* === MEJORA 2B: Fondo y legibilidad === */
+.bg-overlay {
+    background: rgba(5, 5, 8, var(--bg-dim, 0.12));
+    transition: background .2s linear;
+}
+
+.bg-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(5, 5, 8, .65) 100%);
+    pointer-events: none;
+}
+
+.bg-video {
+    filter: saturate(1.1) brightness(.95);
+}
+
+.container-glass,
+.plan-card,
+.stream-box,
+.podium-spot {
+    background: rgba(8, 12, 20, .82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-glass);
+}
+
+.section-head,
+.hero-section h1,
+.hero-section p,
+.section p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+}
