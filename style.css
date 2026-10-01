@@ -1203,3 +1203,72 @@ input:focus, select:focus, textarea:focus {
         font-size: 2.5rem;
     }
 }
+
+/* === MEJORA 1: Historial de Batallas (Timeline) === */
+#perfil-historial-container {
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    text-align: left;
+}
+
+#lista-historial-partidos {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* === MEJORA 1: tokens y scrollbar === */
+:root {
+    --gold-1: #FFF1B8;
+    --gold-2: #FFC83D;
+    --gold-3: #B8801A;
+    --gradient-gold: linear-gradient(180deg, #FFF1B8 0%, #FFC83D 45%, #B8801A 100%);
+    --gradient-cyan: linear-gradient(135deg, #00D2FF, #0077FF);
+    --surface-1: #0A0D14;
+    --surface-2: #0F1420;
+    --border-gold: rgba(255, 200, 61, 0.30);
+    --border-cyan: rgba(0, 210, 255, 0.30);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --shadow-gold: 0 0 24px rgba(255, 200, 61, 0.25);
+    --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+::selection {
+    background-color: #FFC83D;
+    color: #000000;
+}
+
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #FFC83D #0A0D14;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0D14;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFC83D;
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFF1B8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
